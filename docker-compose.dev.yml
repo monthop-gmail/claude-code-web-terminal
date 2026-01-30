@@ -1,0 +1,25 @@
+version: '3.8'
+
+# Development docker-compose - run frontend and backend separately for hot reload
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/backend.Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend/src:/app/src:ro
+      - ./projects:/app/projects
+      - /usr/local/bin/claude:/usr/local/bin/claude:ro
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - ALLOWED_ORIGINS=http://localhost:5173
+      - CLAUDE_WORKING_DIR=/app/projects
+    command: node --watch src/server.js
+    restart: unless-stopped
+
+volumes:
+  projects:
