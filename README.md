@@ -4,6 +4,21 @@ Web-based interface for Claude Code CLI.
 
 ## Quick Start
 
+### Docker Mode (Recommended)
+
+1. **Create `.env` file:**
+```bash
+cp .env.example .env
+# Edit .env and add your ANTHROPIC_API_KEY
+```
+
+2. **Build and run:**
+```bash
+docker compose up -d --build
+```
+
+3. **Open browser:** http://localhost:3001
+
 ### Development Mode
 
 1. **Start Backend:**
@@ -22,18 +37,6 @@ npm run dev
 
 3. **Open browser:** http://localhost:5173
 
-### Docker Mode
-
-```bash
-# Build and run
-docker-compose up --build
-
-# Or run in background
-docker-compose up -d --build
-```
-
-Access at http://localhost:3001
-
 ## Architecture
 
 ```
@@ -50,6 +53,8 @@ Access at http://localhost:3001
 - [x] Session management (create/list/delete)
 - [x] PTY integration with Claude Code CLI
 - [x] Multi-client support per session
+- [x] Claude CLI installed in Docker container
+- [x] Localhost-only port binding for security
 
 ## Project Structure
 
@@ -73,8 +78,17 @@ superapp-cc/
 │   ├── frontend.Dockerfile
 │   └── nginx.conf
 ├── docker-compose.yml
+├── .env.example
 └── PLAN.md
 ```
+
+## Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| ANTHROPIC_API_KEY | Anthropic API key for Claude | Yes |
+| PORT | Backend port (default: 3000) | No |
+| ALLOWED_ORIGINS | CORS origins | No |
 
 ## API
 
@@ -104,11 +118,15 @@ superapp-cc/
 { "type": "exit", "sessionId": "uuid", "exitCode": 0 }
 ```
 
+## Security
+
+- Ports bound to `127.0.0.1` only (not exposed to network)
+- API key stored in `.env` file (not committed to git)
+
 ## Requirements
 
-- Node.js 20+
-- Claude Code CLI installed (`claude` command available)
-- Docker (optional)
+- Docker & Docker Compose
+- ANTHROPIC_API_KEY
 
 ## License
 
