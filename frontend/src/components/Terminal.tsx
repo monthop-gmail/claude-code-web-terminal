@@ -36,7 +36,7 @@ export default function Terminal({ sessionId, wsUrl, onConnected, onDisconnected
         foreground: '#eaeaea',
         cursor: '#f8f8f2',
         cursorAccent: '#1a1a2e',
-        selection: 'rgba(248, 248, 242, 0.3)',
+        selectionBackground: 'rgba(248, 248, 242, 0.3)',
         black: '#000000',
         red: '#ff5555',
         green: '#50fa7b',

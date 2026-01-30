@@ -15,13 +15,13 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy package files
-COPY package*.json ./
+COPY backend/package*.json ./
 
 # Install dependencies
 RUN npm install
 
 # Copy source
-COPY src ./src
+COPY backend/src ./src
 
 # Create projects directory
 RUN mkdir -p /app/projects
