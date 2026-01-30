@@ -7,12 +7,12 @@ services:
       - "3000:3000"
     volumes:
       - ./projects:/app/projects
-      - /usr/local/bin/claude:/usr/local/bin/claude:ro  # Mount host's claude binary
     environment:
       - NODE_ENV=development
       - PORT=3000
       - ALLOWED_ORIGINS=http://localhost:5173,http://localhost:3001
       - CLAUDE_WORKING_DIR=/app/projects
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     restart: unless-stopped
 
   frontend:

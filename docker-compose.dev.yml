@@ -10,12 +10,12 @@ services:
     volumes:
       - ./backend/src:/app/src:ro
       - ./projects:/app/projects
-      - /usr/local/bin/claude:/usr/local/bin/claude:ro
     environment:
       - NODE_ENV=development
       - PORT=3000
       - ALLOWED_ORIGINS=http://localhost:5173
       - CLAUDE_WORKING_DIR=/app/projects
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     command: node --watch src/server.js
     restart: unless-stopped
 
