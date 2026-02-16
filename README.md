@@ -1,6 +1,6 @@
-# SuperApp-CC: Claude Code Web Interface
+# Claude Code Web Terminal
 
-Web-based interface for Claude Code CLI.
+Web-based terminal interface for Claude Code CLI.
 
 ## Quick Start
 
@@ -59,7 +59,7 @@ npm run dev
 ## Project Structure
 
 ```
-superapp-cc/
+claude-code-web-terminal/
 ├── backend/           # Node.js + Express + WebSocket
 │   └── src/
 │       ├── server.js
