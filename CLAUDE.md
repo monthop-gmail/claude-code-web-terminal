@@ -1,7 +1,7 @@
 # Claude Code Guidance
 
 ## Project Overview
-SuperApp-CC is a web interface for Claude Code CLI, allowing users to interact with Claude Code through a browser-based terminal.
+Claude Code Web Terminal is a web-based terminal interface for Claude Code CLI, allowing users to interact with Claude Code through a browser.
 
 ## Tech Stack
 - **Backend**: Node.js 20+, Express, WebSocket (ws), node-pty
